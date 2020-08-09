@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './QuizMain.css';
+import Answer from './answer/Answer';
+import Question from './question/Question';
 
 
 class QuizMain extends Component {
@@ -36,11 +38,18 @@ class QuizMain extends Component {
     step: 1,
     score: 0
   }
-  
+
   render() {
+    let { questions, answers, step } = this.state;
     return (
       <div className="Content">
-      Hi there
+      <Question 
+        question={questions[step]}
+      />
+      <Answer 
+        answer={answers[step]}
+        step={step}
+      />
       </div>
     );
   }
